@@ -1,4 +1,5 @@
 pipeline {
+    agent any
     environment {
         DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
         DOCKER_IMAGE_NAME_FRONTEND = 'lithira/blogpost-frontend'
@@ -7,6 +8,13 @@ pipeline {
     }
     
     stages {
+        
+        stage('Checkout Repository') {
+            steps {
+                git branch: 'main', url: 'https://github.com/LithiraAponsu2/Blog-app-Microservice'
+            }
+        }
+
         stage('Lint Frontend Service') {
             agent {
                 docker {

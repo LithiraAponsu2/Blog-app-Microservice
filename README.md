@@ -40,4 +40,12 @@ docker push lithira/blogpost-database:latest
 
 15. ```kubectl delete -f k8s/```
 
-16. 
+16. ```flake8 ./frontend/app.py```
+
+17. ```flake8 ./backend/app.py```
+
+18. Install Docker Pipeline Plugin
+
+19. Add Docker Credentials in Jenkins
+
+- Set ID as "docker-hub-credentials"
