@@ -1,0 +1,42 @@
+version: '3'
+services:
+  database:
+    image: blogpost-database:latest
+    container_name: blogpost_database
+    ports:
+      - "27017:27017"
+    volumes:
+      - database_data:/data/db
+    networks:
+      - blogpost-network
+
+  backend:
+    image: blogpost-backend:latest
+    container_name: blogpost_backend
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_HOST=database
+    networks:
+      - blogpost-network
+    depends_on:
+      - database
+
+  frontend:
+    image: blogpost-frontend:latest
+    container_name: blogpost_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - BACKEND_HOST=backend
+    networks:
+      - blogpost-network
+    depends_on:
+      - backend
+
+volumes:
+  database_data:
+
+networks:
+  blogpost-network:
+    driver: bridge

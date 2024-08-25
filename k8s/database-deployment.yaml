@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: database
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      containers:
+      - name: database
+        image: yourusername/blogpost-database:latest
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: storage
+          mountPath: /data/db
+      volumes:
+      - name: storage
+        persistentVolumeClaim:
+          claimName: database-pvc
