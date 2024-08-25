@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: yourusername/blogpost-backend:latest
+        image: lithira/blogpost-backend:latest
         ports:
         - containerPort: 5000
         env:

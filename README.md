@@ -34,7 +34,10 @@ docker tag blogpost-database:latest lithira/blogpost-database:latest
 docker push lithira/blogpost-database:latest
 ```
 
-13. ```docker login```
+13. ```kubectl apply -f ks/```
 
+14. ```minikube dashboard```
 
+15. ```kubectl delete -f k8s/```
 
+16. 

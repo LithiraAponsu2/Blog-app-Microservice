@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: yourusername/blogpost-frontend:latest
+        image: lithira/blogpost-frontend:latest
         ports:
         - containerPort: 3000
         env:

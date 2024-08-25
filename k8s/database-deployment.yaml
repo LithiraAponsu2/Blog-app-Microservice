@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: database
-        image: yourusername/blogpost-database:latest
+        image: lithira/blogpost-database:latest
         ports:
         - containerPort: 27017
         volumeMounts:
